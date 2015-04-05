@@ -27,7 +27,6 @@ local.properties
 project.properties
 proguard-project.txt
 linklint_results
-Makefile
 flatc
 flathash
 flattests
