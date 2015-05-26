@@ -43,3 +43,5 @@ build/Xcode/FlatBuffers.xcodeproj/xcuserdata/**
 java/.idea
 java/*.iml
 java/target
+build/x86
+build/x64
