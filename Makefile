@@ -17,6 +17,6 @@ configure:
 
 .PHONY: clean
 clean:
-	rm -rf build/x32
+	rm -rf build/x86
 	rm -rf build/x64
 
