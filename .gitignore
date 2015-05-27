@@ -45,3 +45,4 @@ java/*.iml
 java/target
 build/x86
 build/x64
+.last_build_*
