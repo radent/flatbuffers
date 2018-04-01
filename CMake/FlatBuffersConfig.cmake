@@ -30,10 +30,14 @@
 SET(FlatBuffers_ROOT "${CMAKE_CURRENT_LIST_DIR}/..")
 SET(FLATBUFFERS_INCLUDE_DIR "${FlatBuffers_ROOT}/include")
 
-IF("${RADIANT_BUILD_PLATFORM}" STREQUAL "x86")
-  SET(FLATBUFFERS_FLATC_EXECUTABLE "${FlatBuffers_ROOT}/build/x86/Release/flatc.exe")
-ELSE()
-  SET(FLATBUFFERS_FLATC_EXECUTABLE "${FlatBuffers_ROOT}/build/x64/Release/flatc.exe")
+IF(WIN32)
+  IF("${RADIANT_BUILD_PLATFORM}" STREQUAL "x86")
+    SET(FLATBUFFERS_FLATC_EXECUTABLE "${FlatBuffers_ROOT}/build/x86/Release/flatc.exe")
+  ELSE()
+    SET(FLATBUFFERS_FLATC_EXECUTABLE "${FlatBuffers_ROOT}/build/x64/Release/flatc.exe")
+  ENDIF()
+ELSEIF(APPLE)
+  SET(FLATBUFFERS_FLATC_EXECUTABLE "${FlatBuffers_ROOT}/build/x64/flatc")
 ENDIF()
 
 function(FLATBUFFERS_GENERATE_C_HEADERS Name)

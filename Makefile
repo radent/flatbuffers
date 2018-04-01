@@ -14,15 +14,15 @@ default: configure build
 	echo done
 
 build: configure
-	$(MSBUILD) $(FLABUFFERS_BUILD_DIR)/FlatBuffers.sln -p:configuration=debug,platform=$(MSBUILD_PLATFORM)
-	$(MSBUILD) $(FLABUFFERS_BUILD_DIR)/FlatBuffers.sln -p:configuration=release,platform=$(MSBUILD_PLATFORM)
+	cmake --build $(FLABUFFERS_BUILD_DIR)
+	#$(MSBUILD) $(FLABUFFERS_BUILD_DIR)/FlatBuffers.sln -p:configuration=debug,platform=$(MSBUILD_PLATFORM)
+	#$(MSBUILD) $(FLABUFFERS_BUILD_DIR)/FlatBuffers.sln -p:configuration=release,platform=$(MSBUILD_PLATFORM)
 
 configure:
 	-mkdir -p $(FLABUFFERS_BUILD_DIR)
-	$(CMAKE) -G"$(RADIANT_CMAKE_GENERATOR)" -B$(FLABUFFERS_BUILD_DIR) -H. $(FLABUFFERS_FLAGS)
+	cmake -G"$(RADIANT_CMAKE_GENERATOR)" -B$(FLABUFFERS_BUILD_DIR) -H. $(FLABUFFERS_FLAGS)
 
 .PHONY: clean
 clean:
 	rm -rf build/x86
 	rm -rf build/x64
-
