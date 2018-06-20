@@ -37,7 +37,7 @@ IF(WIN32)
     SET(FLATBUFFERS_FLATC_EXECUTABLE "${FlatBuffers_ROOT}/build/x64/Release/flatc.exe")
   ENDIF()
 ELSEIF(APPLE)
-  SET(FLATBUFFERS_FLATC_EXECUTABLE "${FlatBuffers_ROOT}/build/x64/flatc")
+  SET(FLATBUFFERS_FLATC_EXECUTABLE "${FlatBuffers_ROOT}/build/x64/flatc/RelWithDebInfo/flatc")
 ENDIF()
 
 function(FLATBUFFERS_GENERATE_C_HEADERS Name)
